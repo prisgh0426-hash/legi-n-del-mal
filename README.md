@@ -1,6 +1,6 @@
 ![Estático](https://img.shields.io/badge/Legion--del--Mal-Ultima--Versión!!-purple)
 
-![Con logo](https://img.shields.io/badge/Git-2.45-F05032?style=for-the-badge&logo=git&logoColor=white)
+![Con logo](https://img.shields.io/badge/Git-2.45-F05032?style=for-the-badge&logo=git&logoColor=orange)
 
 ![Workflow](https://img.shields.io/github/actions/workflow/status/prisgh0426-hash/legi-n-del-mal/ci.yml)
 ![Release](https://img.shields.io/github/v/release/prisgh0426-hash/legi-n-del-mal)
