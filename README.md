@@ -9,7 +9,8 @@
 ![Licencia](https://img.shields.io/github/license/prisgh0426-hash/legi-n-del-mal)
 
 
-# 🦹‍♂️ La Legión del Mal - Desde Remoto y Local
+# 🦹‍♂️ La Legión del Mal 
+🚀
 
 
 > _"El mundo no se conquista con fuerza bruta, se conquista con un buen plan y control de versiones."_
