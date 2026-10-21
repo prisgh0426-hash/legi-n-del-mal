@@ -12,6 +12,8 @@
 
 # 🦹‍♂️ La Legión del Mal - Desde Local
 
+## Es un grupo dedicado a aprender Git + GitHub
+
 🚀
 
 
