@@ -2,9 +2,8 @@
 name: Temple para bugs de software
 about: Ayúdanos a mejorar
 title: 'Bug: '
-labels: ''
+labels: Mejora de software.
 assignees: prisgh0426-hash
-type: Bug
 
 ---
 
