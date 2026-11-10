@@ -17,7 +17,7 @@ jobs:
            echo ""
            echo "❌ peroo qué pasó? no hay nada"
         
-        - name: "Brainiac descloquea la bóveda"
+        - name: "Brainiac desbloquea la bóveda"
           uses: actions/checkout@v4
         
         - name: "Ahora sí, vamos a ver los planes"
