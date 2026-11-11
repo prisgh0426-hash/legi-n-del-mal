@@ -18,6 +18,7 @@ on:
          description: "Mensaje para el consejo"
          required: true
          default: 'La misión fue un éxito'
+
       prioridad:
          description: 'Nivel de prioridad'
          required: true
@@ -26,20 +27,19 @@ on:
           - 🟢 Normal
           - 🟡 Alta
           - 🔴 Crítica
-      
-
-
-
-
-        
-
-
-
+    
 jobs:
   transmitir-mensaje:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+      - name: Imprimir inputs
+        run: |
+          echo "Inputs: "
+          echo ""
+          echo "Villano: ${{inputs.villano}} "
+          echo "Nivel: ${{inputs.prioridad}} "
+          echo "Mensaje: ${{inputs.mensaje}} "
+    
 
     
