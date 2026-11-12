@@ -1,0 +1,28 @@
+name: Control de Calidad
+
+on:
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
+
+
+jobs:
+   revision-de-calidad:
+     runs-on: ubuntu-latest
+
+
+     steps:
+       - name: Brainiac accede a los planes
+         uses: actions/checkout@4
+
+       - name: El consejo revisa los cambios
+         run: |
+           chmod +x scrips/validar-planes.sh
+           ./scripts/validar-planes.sh
+           
+        
+           
+        
+               
+
