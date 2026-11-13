@@ -19,3 +19,16 @@ Spiderman es un superhéroe ficticio creado por el escritor Stan Lee y el dibuja
 - Gwen Stacy (novia en algunas versiones)
 - Annie Parker (hija en algunas versiones)
 - Benjamin "Benjy Parker (hijo en algunas versiones alternativas)
+
+## Peliculas
+-   Spiderman: No way home
+    Spiderman: Far from home
+    Spiderman: Into the spider-verse
+-   Spiderman: Homecoming
+    Spiderman: No way home
+-   Spiderman 1
+    Spiderman 2
+    Spiderman 3
+
+# #Estrategia recomendada
+Se recomienda centrarse en mejorar la agilidad y la fuerza del personaje, así como en desarrollar habilidades de combate cuerpo a cuerpo. Además, es importante mantener un equilibrio entre la vida personal de Peter Parker y sus responsabilidades comn Spiderman para evitar conflictos que puedan afectar su desempeño como héroe.
