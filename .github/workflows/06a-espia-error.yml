@@ -9,7 +9,7 @@ name: 📡 Transmisión de emergencia
 on: 
   workflow_dispatch: # También se puede ejecutar manualmente para la demo en clase
 jobs:
-  transmision:
+  transmision: 
     runs-on: ubuntu-latest
     steps:
       - name: Enviar alerta a la Fortaleza Prohibida
