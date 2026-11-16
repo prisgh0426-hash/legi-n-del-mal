@@ -1,9 +1,13 @@
 
-name: 07 Bienvenido Brainic - Nuevo issue
+name: 🧠 Bienvenido Brainiac - Nuevo issue
 
 on:
-  issues:
-    types: [opened]
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: 'Número del issue que deseas procesar'
+        required: true
+        type: number
 
 permissions:
   issues: write
@@ -14,19 +18,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Comentario de bienvenida
+      - name: Comentario de bienvenida y obtener datos del issue
+        id: issue
         uses: actions/github-script@v7
         with:
           script: |
-            const autor = context.payload.issue.user.login;
+            const numero = Number(context.payload.inputs.issue_number);
+
+            const { data: issue } = await github.rest.issues.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: numero
+            });
+
+            const autor = issue.user.login;
 
             const cuerpo = [
-              `**Saludos, ${autor}.**`,
+              `🧠 **Saludos, ${autor}.**`,
               '',
               '- Tu issue ha sido registrado en mi banco de datos.',
               '',
-              `- Issue: #${context.payload.issue.number}`,
-              `- Título: ${context.payload.issue.title}`,
+              `- Issue: #${issue.number}`,
+              `- Título: ${issue.title}`,
               '',
               '_Mi intelecto de nivel 12 procesará tu solicitud en breve._'
             ].join('\n');
@@ -34,6 +47,39 @@ jobs:
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              issue_number: context.payload.issue.number,
+              issue_number: issue.number,
               body: cuerpo
             });
+
+            core.setOutput('number', issue.number);
+            core.setOutput('title', issue.title);
+            core.setOutput('author', autor);
+            core.setOutput('url', issue.html_url);
+
+      - name: Notificar por correo a Brainiac
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+
+          from: "Brainiac Bot <${{ secrets.MAIL_USERNAME }}>"
+          to: pris09@google.com
+
+          subject: "🧠 Nuevo issue #${{ steps.issue.outputs.number }}: ${{ steps.issue.outputs.title }}"
+
+          html_body: |
+            <h2>🧠 Nuevo issue registrado en el banco de datos</h2>
+            <ul>
+              <li><strong>Repositorio:</strong> ${{ github.repository }}</li>
+              <li><strong>Issue:</strong> #${{ steps.issue.outputs.number }}</li>
+              <li><strong>Título:</strong> ${{ steps.issue.outputs.title }}</li>
+              <li><strong>Autor:</strong> ${{ steps.issue.outputs.author }}</li>
+              <li><strong>Enlace:</strong>
+                <a href="${{ steps.issue.outputs.url }}">Ver Issue</a>
+              </li>
+            </ul>
+            <hr>
