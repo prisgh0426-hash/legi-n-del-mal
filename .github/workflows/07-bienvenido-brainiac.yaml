@@ -1,0 +1,39 @@
+
+name: 07 Bienvenido Brainic - Nuevo issue
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  issues: write
+
+jobs:
+  responder-issue:
+    name: Responder al issue con mensaje de Brainiac
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Comentario de bienvenida
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const autor = context.payload.issue.user.login;
+
+            const cuerpo = [
+              `**Saludos, ${autor}.**`,
+              '',
+              '- Tu issue ha sido registrado en mi banco de datos.',
+              '',
+              `- Issue: #${context.payload.issue.number}`,
+              `- Título: ${context.payload.issue.title}`,
+              '',
+              '_Mi intelecto de nivel 12 procesará tu solicitud en breve._'
+            ].join('\n');
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.issue.number,
+              body: cuerpo
+            });
